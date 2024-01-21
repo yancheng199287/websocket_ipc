@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+
+<body>
+<div id="content1">测试内容1</div>
+<div id="content2">测试内容2</div>
+
+
+<script src="websocket-sdk.js"></script>
+
+<script>
+
+    let startWebSocket = function () {
+        // 使用示例
+        const sdk = new WebSocketSDK('ws://localhost:8080',function (isOk){
+            console.log("连接状态：", isOk);
+
+            sdk.sendShortRequest(buildTextWSPayload("这是一个脚本调用")).then((data)=>{
+                document.getElementById("content2").innerHTML="调用成功";
+
+                document.getElementById("content1").innerHTML=data;
+            })
+        });
+
+    }
+
+    window.onload = function () {
+        console.log("hello,onload");
+        startWebSocket();
+    }
+</script>
+
+
+</body>
+</html>

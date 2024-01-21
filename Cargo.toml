@@ -1,0 +1,29 @@
+[package]
+name = "websocket_ipc"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1.33.0", features = ["full"] }
+hyper = { version = "0.14.26", features = ["http1", "server", "client"] }
+fastwebsockets = {version="0.4.4",features=["upgrade"]}
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+utf-8 = "0.7.6"
+bytes = "1.5.0"
+parking_lot = "0.12.1"  # 线程 锁 处理
+chrono = "0.4.31"  # 时间处理
+
+
+
+
+[lib]
+name = "websocket_ipc"
+path = "src/lib.rs"
+
+#[lib]
+#crate-type = ["lib"]
+#name = "websocket_ipc"
+#path = "src/lib.rs"
